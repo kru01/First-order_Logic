@@ -1,0 +1,125 @@
+1. Who is Prince Andrew's mother?
+    mother(X, 'prince_andrew').
+    X = queen_elizabeth_II .
+
+2. Was Queen Elizabeth the wife of Mia Grace Tindall?
+    wife('queen_elizabeth_II', 'mia_grace_tindall').
+    false.
+
+3. Who are the granddaughters of Prince Phillip?
+    granddaughter(X, 'prince_phillip').  
+    X = zara_phillips ;
+    X = princess_beatrice ;
+    X = princess_eugenie ;
+    X = lady_louise_mountbatten_windsor ;
+    false.
+
+4. List all nieces and nephews of Prince Charles.
+    uncle('prince_charles', X).          
+    X = peter_phillips ;
+    X = zara_phillips ;
+    X = princess_beatrice ;
+    X = princess_eugenie ;
+    X = james_viscount_severn ;
+    X = lady_louise_mountbatten_windsor ;
+    false.
+
+5. Who are the nephews of Princess Anne?
+    nephew(X, 'princess_anne').  
+    X = prince_william ;
+    X = prince_harry ;
+    X = james_viscount_severn ;
+    false.
+
+6. List all grandchildren of Queen Elizabeth II?
+    grandchild(X, 'queen_elizabeth_II').
+    X = prince_william ;
+    X = prince_harry ;
+    X = peter_phillips ;
+    X = zara_phillips ;
+    X = princess_beatrice ;
+    X = princess_eugenie ;
+    X = james_viscount_severn ;
+    X = lady_louise_mountbatten_windsor.
+
+7. Who are the grandparents of Princess Charlotte?
+    grandparent(X, 'princess_charlotte').
+    X = princess_diana ;
+    X = prince_charles ;
+    false.
+
+8. Who are the siblings of Prince Edward?
+    sibling(X, 'prince_edward'). 
+    X = prince_charles ;
+    X = princess_anne ;
+    X = prince_andrew ;
+    false.
+
+9. Is Sophie Rhys-jones the mother of Lady Louise Mountbatten-Windsor?
+    mother('sophie_rhys_jones', 'lady_louise_mountbatten_windsor').
+    true .
+
+10. Who did Sarah Ferguson divorce?
+    divorced('sarah_ferguson', Y).
+    Y = prince_andrew.
+
+11. Is Savannah Phillips a niece of Mike Tindall?
+    niece('savannah_phillips', 'mike_tindall').
+    true .
+
+12. Who is the grandfather of Mia Grace Tindall?
+    grandfather(X, 'mia_grace_tindall').
+    X = captain_mark_phillips ;
+    false.
+
+13. Who is the wife of Prince Charles currently?
+    wife(X, 'prince_charles').
+    X = camilla_parker_bowles ;
+    false.
+
+14. Is Prince Harry the father of Prince George?
+    father('prince_harry', 'prince_george').
+    false.
+
+15. Does Autumn Kelly have any niece or nephew?
+    aunt('autumn_kelly', X).                    
+    X = mia_grace_tindall ;
+    false.
+
+16. Is Prince George a nephew of Prince Harry?
+    nephew('prince_george', 'prince_harry').
+    true .
+
+17. List all nieces and nephews of Sophie Rhys-jones.
+    aunt('sophie_rhys_jones', X).
+    X = prince_william ;
+    X = prince_harry ;
+    X = peter_phillips ;
+    X = zara_phillips ;
+    X = princess_beatrice ;
+    X = princess_eugenie ;
+    false.
+
+18. Is Zara Phillips a sister of Peter Phillips?
+    sister('zara_phillips', 'peter_phillips').
+    true.
+
+19. List all grandchildren of Princess Diana.
+    grandchild(X, 'princess_diana').
+    X = prince_george ;
+    X = princess_charlotte ;
+    false.
+
+20. List all grandchildren of Captain Mark Phillips.
+    grandparent('captain_mark_phillips', X).
+    X = savannah_phillips ;
+    X = isla_phillips ;
+    X = mia_grace_tindall.
+
+21. Is Isla Phillips a granddaughter of Timothy Laurence?
+    granddaughter('isla_phillips', 'timothy_laurence'). 
+    false.
+
+22. Is James, Viscount Severn a sibling of Princess Eugenie?
+    sibling('james_viscount_severn', 'princess_eugenie').
+    false.
