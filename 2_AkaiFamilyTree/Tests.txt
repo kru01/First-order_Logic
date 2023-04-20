@@ -16,7 +16,7 @@
     sister('akemi_miyano', 'masuri_sera').
     false.
 
-5. Who were the person who took APTX-4869 in Akai's family?
+5. Who were the persons who took APTX-4869 in Akai's family?
     took_APTX_4869(X).
     X = shiho_miyano ;
     X = mary_akai.
@@ -83,3 +83,25 @@
 20. Is Tsutomo Akai the husband of Atsushi Miyano?
     husband('tsutomu_akai', 'atsushi_miyano').
     false.
+
+21. Is the nationality of Shiho Miyano British-Japanese?
+    british_japanese('shiho_miyano', 'elena_miyano', 'atsushi_miyano').
+    true.
+
+22. Who were the people that developed APTX 4869?
+    research_APTX_4869(X).
+    X = atsushi_miyano ;
+    X = elena_miyano ;
+    X = shiho_miyano.
+
+23. Who is the person who has the antidote for APTX 4869?
+    has_antidote_APTX_4869(X).
+    X = shiho_miyano.
+
+24. Is Shiho Miyano's family the scienctist family?
+    scientist_family('shiho_miyano', 'elena_miyano').
+    true.
+
+25. Is the nationality of Akai Shuichi British-Japanese?
+    british_japanese('shuichi_akai', 'mary_akai', 'tsutomu_akai').
+    true .

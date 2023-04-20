@@ -44,8 +44,8 @@ married(ichiyo_haneda, yasuharu_haneda).
 
 dating(shuichi_akai, akemi_miyano).
 dating(akemi_miyano, shuichi_akai).
-non_flood_brother(shukichi_haneda, kohji_haneda).
-non_flood_brother(kohji_haneda, shukichi_haneda).
+non_blood_brother(shukichi_haneda, kohji_haneda).
+non_blood_brother(kohji_haneda, shukichi_haneda).
 
 was_black_organization(atsushi_miyano).
 was_black_organization(elena_miyano).
@@ -62,6 +62,15 @@ is_alive(shuichi_akai).
 
 shrank(shiho_miyano).
 shrank(mary_akai).
+
+is_bristish(elena_miyano).
+is_bristish(mary_akai).
+is_japanese(atsushi_miyano).
+is_japanese(tsutomu_akai).
+
+is_biochemist(atsushi_miyano).
+is_biochemist(elena_miyano).
+is_biochemist(shiho_miyano).
 
 
 /* Family relationship */
@@ -100,17 +109,19 @@ boyfriend(Person, Girlfriend) :- dating(Person, Girlfriend), male(Person).
 girlfriend(Person, Boyfriend) :- dating(Person, Boyfriend), female(Person).
 
 
-/* Non-flood relationship */
-aunt(Person, P1, P2) :- female(Person), non_flood_brother(P1, P2), (parent(Person, P1); parent(Person, P2)).
+/* Non-blood relationship */
+aunt(Person, P1, P2) :- female(Person), non_blood_brother(P1, P2), (parent(Person, P1); parent(Person, P2)).
 
-uncle(Person, P1, P2) :- male(Person), non_flood_brother(P1, P2), (parent(Person, P1); parent(Person, P2)).
+uncle(Person, P1, P2) :- male(Person), non_blood_brother(P1, P2), (parent(Person, P1); parent(Person, P2)).
 
-brother(Person, P1, P2) :- male(Person), non_flood_brother(P1, P2), (brother(Person, P1); brother(Person, P2)).
+brother(Person, P1, P2) :- male(Person), non_blood_brother(P1, P2), (brother(Person, P1); brother(Person, P2)).
 
-sister(Person, P1, P2) :- female(Person), non_flood_brother(P1, P2), (sister(Person, P1); sister(Person, P2)).
+sister(Person, P1, P2) :- female(Person), non_blood_brother(P1, P2), (sister(Person, P1); sister(Person, P2)).
 
 
 /* Black Organization */
+research_APTX_4869(Person) :- is_biochemist(Person),  was_black_organization(Person).
+
 took_APTX_4869(Person) :- shrank(Person).
 
 infiltrator(Person) :- was_black_organization(Person), is_fbi_agent(Person).
@@ -120,4 +131,21 @@ hunted(Person) :- took_APTX_4869(Person), is_alive(Person).
 is_police(Person) :- is_fbi_agent(Person); is_cia_agent(Person); is_mi6_agent(Person).
 
 police_family(Person, Parent) :- is_police(Person), is_police(Parent).
+
+scientist_family(Person, Parent) :- is_biochemist(Person), is_biochemist(Parent).
+
+has_antidote_APTX_4869(Person) :- research_APTX_4869(Person), is_alive(Person).
+
+british_japanese(Person, Parent1, Parent2) :- parent(Parent1, Person), is_bristish(Parent1), parent(Parent1, Person), is_japanese(Parent2).
+
+
+
+
+
+
+
+
+
+
+
 
