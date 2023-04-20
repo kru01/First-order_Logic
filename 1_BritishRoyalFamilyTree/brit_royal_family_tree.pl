@@ -150,31 +150,31 @@ sister(Person, Sibling) :-
 aunt(Person, NieceNephew) :-
         female(Person),
         parent(X, NieceNephew),
-        X \= Person,
         (parent(Y, Person); (parent(Y, Z), husband(Z, Person), X \= Z)),
         female(Y),              % The gender here doesn't matter,
-        parent(Y, X).           % we choose only one to avoid duplication.
+        parent(Y, X),           % we choose only one to avoid duplication.
+        X \= Person.
 
 uncle(Person, NieceNephew) :-
         male(Person),
         parent(X, NieceNephew),
-        X \= Person,
         (parent(Y, Person); (parent(Y, Z), wife(Z, Person), X \= Z)),
         female(Y),              % The gender here doesn't matter,
-        parent(Y, X).           % we choose only one to avoid duplication.
+        parent(Y, X),           % we choose only one to avoid duplication.
+        X \= Person.
 
 niece(Person, AuntUncle) :-
         female(Person),
         parent(X, Person),
-        X \= AuntUncle,
         (parent(Y, AuntUncle); (parent(Y, Z), married(Z, AuntUncle), X \= Z)),
         female(Y),              % The gender here doesn't matter,
-        parent(Y, X).           % we choose only one to avoid duplication.
+        parent(Y, X),           % we choose only one to avoid duplication.
+        X \= AuntUncle.
 
 nephew(Person, AuntUncle) :-
         male(Person),
         parent(X, Person),
-        X \= AuntUncle,
         (parent(Y, AuntUncle); (parent(Y, Z), married(Z, AuntUncle), X \= Z)),
         female(Y),              % The gender here doesn't matter,
-        parent(Y, X).           % we choose only one to avoid duplication.
+        parent(Y, X),           % we choose only one to avoid duplication.
+        X \= AuntUncle.
