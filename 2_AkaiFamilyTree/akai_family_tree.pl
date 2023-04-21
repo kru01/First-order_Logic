@@ -63,8 +63,8 @@ is_alive(shuichi_akai).
 shrank(shiho_miyano).
 shrank(mary_akai).
 
-is_bristish(elena_miyano).
-is_bristish(mary_akai).
+is_british(elena_miyano).
+is_british(mary_akai).
 is_japanese(atsushi_miyano).
 is_japanese(tsutomu_akai).
 
@@ -110,13 +110,13 @@ girlfriend(Person, Boyfriend) :- dating(Person, Boyfriend), female(Person).
 
 
 /* Non-blood relationship */
-aunt(Person, P1, P2) :- female(Person), non_blood_brother(P1, P2), (parent(Person, P1); parent(Person, P2)).
+auntNB(AuntNB, Person) :- female(AuntNB), non_blood_brother(Person, X), (parent(AuntNB, Person); parent(AuntNB, X)).
 
-uncle(Person, P1, P2) :- male(Person), non_blood_brother(P1, P2), (parent(Person, P1); parent(Person, P2)).
+uncleNB(UncleNB, Person) :- male(UncleNB), non_blood_brother(Person, X), (parent(UncleNB, Person); parent(UncleNB, X)).
 
-brother(Person, P1, P2) :- male(Person), non_blood_brother(P1, P2), (brother(Person, P1); brother(Person, P2)).
+brotherNB(BrotherNB, Person) :- male(BrotherNB), non_blood_brother(Person, X), (brother(BrotherNB, Person); brother(BrotherNB, X)).
 
-sister(Person, P1, P2) :- female(Person), non_blood_brother(P1, P2), (sister(Person, P1); sister(Person, P2)).
+sisterNB(SisterNB, Person) :- female(SisterNB), non_blood_brother(Person, X), (sister(SisterNB, Person); sister(SisterNB, X)).
 
 
 /* Black Organization */
@@ -130,22 +130,10 @@ hunted(Person) :- took_APTX_4869(Person), is_alive(Person).
 
 is_police(Person) :- is_fbi_agent(Person); is_cia_agent(Person); is_mi6_agent(Person).
 
-police_family(Person, Parent) :- is_police(Person), is_police(Parent).
+police_family(Person) :- is_police(Person), parent(X, Person), is_police(X).
 
-scientist_family(Person, Parent) :- is_biochemist(Person), is_biochemist(Parent).
+scientist_family(Person) :- is_biochemist(Person), parent(X, Person), is_biochemist(X).
 
 has_antidote_APTX_4869(Person) :- research_APTX_4869(Person), is_alive(Person).
 
-british_japanese(Person, Parent1, Parent2) :- parent(Parent1, Person), is_bristish(Parent1), parent(Parent1, Person), is_japanese(Parent2).
-
-
-
-
-
-
-
-
-
-
-
-
+british_japanese(Person) :- (father(X, Person), is_british(X), mother(Y, Person), is_japanese(Y)); (father(X, Person), is_japanese(X), mother(Y, Person), is_british(Y)).

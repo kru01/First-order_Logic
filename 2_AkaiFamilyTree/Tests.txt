@@ -1,107 +1,107 @@
 1. Who is Akai Shuichi 's father?
-    father(X, 'shuichi_akai').
+    ?- father(X, 'shuichi_akai').
     X = tsutomu_akai.
 
 2. Is Elena Miyano the wife of Atsushi Miyano?
-    wife('elena_miyano', 'atsushi_miyano').
+    ?- wife('elena_miyano', 'atsushi_miyano').
     true.
 
 3. Who are Mary Akai 's childs?
-    child(X, 'mary_akai').
+    ?- child(X, 'mary_akai').
     X = shuichi_akai ;
     X = masumi_sera ;
     X = shukichi_haneda.
 
 4. Is Akemi Miyano the sister of Masumi Sera?
-    sister('akemi_miyano', 'masuri_sera').
+    ?-  sister('akemi_miyano', 'masuri_sera').
     false.
 
 5. Who were the persons who took APTX-4869 in Akai's family?
-    took_APTX_4869(X).
+    ?- took_APTX_4869(X).
     X = shiho_miyano ;
     X = mary_akai.
 
 6. Is Akemi Miyano the daughter of Atsushi Miyano?
-    daughter('akemi_miyano', 'atsushi_miyano').
+    ?- daughter('akemi_miyano', 'atsushi_miyano').
     true .
 
 7. Is Elena Miyano the aunt of Shuichi Akai?
-    aunt(elena_miyano, shuichi_akai).
+    ?- aunt('elena_miyano', 'shuichi_akai').
     true .
 
 8. Is Akai's grandfather the grandfather of Shiho Miyano?
-    grandfather('akai_grandpa', 'shiho_miyano').
+    ?- grandfather('akai_grandpa', 'shiho_miyano').
     true .
 
 9. Who are the parents of Kohji Haneda?
-    parent(X, 'kohji_haneda').
+    ?- parent(X, 'kohji_haneda').
     X = yasuharu_haneda ;
     X = ichiyo_haneda.
 
 10. Who are grandsons of Akai's grandmother?
-    grandson(X, 'akai_grandma').
+    ?- grandson(X, 'akai_grandma').
     X = shuichi_akai ;
     X = shukichi_haneda.
 
 11.Is Shiho Miyano hunting by Black Organization?
-    hunted('shiho_miyano').
+    ?- hunted('shiho_miyano').
     true.
 
 12. Is Tsutomu Akai the husband of Mary Akai?
-    husband('tsutomu_akai', 'mary_akai').
+    ?- husband('tsutomu_akai', 'mary_akai').
     true.
 
 13. Is Shiho Miyano the sister of Shukichi Haneda?
-    sister(shiho_miyano, shukichi_haneda).
+    ?- sister(shiho_miyano, shukichi_haneda).
     false.
 
 14. Is Akai Shuichi infiltrator in Black Organization?
-    infiltrator('shuichi_akai').
+    ?- infiltrator('shuichi_akai').
     true.
 
 15. Who is the sister of Shukichi Heneda?
-    sister(X, 'shukichi_haneda').
+    ?- sister(X, 'shukichi_haneda').
     X = masumi_sera ;
     false.
 
-16. Is Masumi Sera the sister of Kohji Haneda?
-    sister('masumi_sera', 'shukichi_haneda', 'kohji_haneda').
+16. Is Masumi Sera the non-blood sister of Kohji Haneda?
+    ?- sisterNB('masumi_sera', 'kohji_haneda').
     true .
 
 17. Is Akai Shuichi's family the police family?
-    police_family('shuichi_akai', 'tsutomu_akai').
+    ?- police_family('shuichi_akai').
     true .
 
 18. Who is the boy friend of Akemi Miyano?
-    boyfriend(X, 'akemi_miyano').
+    ?- boyfriend(X, 'akemi_miyano').
     X = shuichi_akai.
 
-19. Is Shukichi Haneda's mother the aunt of Kohji Heneda?
-    aunt('mary_akai', 'shukichi_haneda', 'kohji_haneda').
+19. Is Mary Akai the non-blood aunt of Kohji Heneda?
+    ?- auntNB('mary_akai', 'kohji_haneda').
     true .
 
 20. Is Tsutomo Akai the husband of Atsushi Miyano?
-    husband('tsutomu_akai', 'atsushi_miyano').
+    ?- husband('tsutomu_akai', 'atsushi_miyano').
     false.
 
 21. Is the nationality of Shiho Miyano British-Japanese?
-    british_japanese('shiho_miyano', 'elena_miyano', 'atsushi_miyano').
-    true.
+    ?- british_japanese('shiho_miyano').
+    true .
 
 22. Who were the people that developed APTX 4869?
-    research_APTX_4869(X).
+    ?- research_APTX_4869(X).
     X = atsushi_miyano ;
     X = elena_miyano ;
     X = shiho_miyano.
 
 23. Who is the person who has the antidote for APTX 4869?
-    has_antidote_APTX_4869(X).
+    ?-  has_antidote_APTX_4869(X).
     X = shiho_miyano.
 
-24. Is Shiho Miyano's family the scienctist family?
-    scientist_family('shiho_miyano', 'elena_miyano').
-    true.
+24. Is Shiho Miyano's family the scientist family?
+    ?- scientist_family('shiho_miyano').
+    true .
 
 25. Is the nationality of Akai Shuichi British-Japanese?
-    british_japanese('shuichi_akai', 'mary_akai', 'tsutomu_akai').
+    ?- british_japanese('shuichi_akai').
     true .
