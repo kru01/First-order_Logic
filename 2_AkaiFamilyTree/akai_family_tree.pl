@@ -41,7 +41,6 @@ married(elena_miyano, atsushi_miyano).
 married(mary_akai, tsutomu_akai).
 married(ichiyo_haneda, yasuharu_haneda).
 
-
 dating(shuichi_akai, akemi_miyano).
 dating(akemi_miyano, shuichi_akai).
 non_blood_brother(shukichi_haneda, kohji_haneda).
@@ -72,55 +71,76 @@ is_biochemist(atsushi_miyano).
 is_biochemist(elena_miyano).
 is_biochemist(shiho_miyano).
 
-
 /* Family relationship */
-husband(Person,Wife) :- married(Person,Wife), male(Person).
-wife(Person,Husband) :- married(Person,Husband), female(Person).
+husband(Person, Wife) :- married(Person, Wife), male(Person).
+wife(Person, Husband) :- married(Person, Husband), female(Person).
 
 father(Parent, Child) :- parent(Parent, Child), male(Parent).
-mother(Parent,Child) :- parent(Parent,Child), female(Parent).
+mother(Parent, Child) :- parent(Parent, Child), female(Parent).
 
-child(Child,Parent) :- parent(Parent,Child).
-son(Child,Parent) :- child(Child,Parent), male(Child).
-daughter(Child,Parent) :- child(Child,Parent), female(Child).
+child(Child, Parent) :- parent(Parent,Child).
+son(Child, Parent) :- child(Child, Parent), male(Child).
+daughter(Child, Parent) :- child(Child, Parent), female(Child).
 
-grandparent(GP,GC) :- parent(GP,Parent), parent(Parent,GC).
-grandmother(GM,GC) :- grandparent(GM,GC), female(GM).
-grandfather(GF,GC) :- grandparent(GF,GC), male(GF).
+grandparent(GP, GC) :- parent(GP, Parent), parent(Parent, GC).
+grandmother(GM, GC) :- grandparent(GM, GC), female(GM).
+grandfather(GF, GC) :- grandparent(GF, GC), male(GF).
 
-grandchild(GC,GP) :- grandparent(GP,GC).
-grandson(GS,GP) :- grandchild(GS,GP),male(GS).
-granddaughter(GD,GP) :- grandchild(GD,GP), female(GD).
+grandchild(GC, GP) :- grandparent(GP, GC).
+grandson(GS, GP) :- grandchild(GS, GP),male(GS).
+granddaughter(GD, GP) :- grandchild(GD, GP), female(GD).
 
-sibling(Person1,Person2) :- father(Father, Person1), father(Father, Person2), mother(Mother, Person1), mother(Mother, Person2), Person1 \= Person2.
-brother(Person,Sibling) :- sibling(Person, Sibling), male(Person).
-sister(Person,Sibling) :- sibling(Person, Sibling), female(Person).
+sibling(Person1, Person2) :-
+        father(Father, Person1), father(Father, Person2),
+        mother(Mother, Person1), mother(Mother, Person2),
+        Person1 \= Person2.
 
-aunt(Person, NieceNephew) :- female(Person), parent(Parent, NieceNephew),(sister(Person, Parent);(brother(Uncle, Parent), wife(Person, Uncle))).
+brother(Person, Sibling) :- sibling(Person, Sibling), male(Person).
+sister(Person, Sibling) :- sibling(Person, Sibling), female(Person).
 
-uncle(Person, NieceNephew) :- male(Person), parent(Parent, NieceNephew),(brother(Person, Parent);(sister(Aunt, Parent), husband(Person, Aunt))).
+aunt(Person, NieceNephew) :-
+        female(Person),
+        parent(Parent, NieceNephew),
+        (sister(Person, Parent);
+        (brother(Uncle, Parent), wife(Person, Uncle))).
 
-niece(Person, AuntUncle) :- female(Person),(aunt(AuntUncle, Person); uncle(AuntUncle, Person)).
+uncle(Person, NieceNephew) :-
+        male(Person),
+        parent(Parent, NieceNephew),
+        (brother(Person, Parent);
+        (sister(Aunt, Parent), husband(Person, Aunt))).
 
-nephew(Person, AuntUncle) :- male(Person),(aunt(AuntUncle, Person); uncle(AuntUncle, Person)).
+niece(Person, AuntUncle) :-
+        female(Person),
+        (aunt(AuntUncle, Person); uncle(AuntUncle, Person)).
+
+nephew(Person, AuntUncle) :-
+        male(Person),
+        (aunt(AuntUncle, Person); uncle(AuntUncle, Person)).
 
 boyfriend(Person, Girlfriend) :- dating(Person, Girlfriend), male(Person).
 
 girlfriend(Person, Boyfriend) :- dating(Person, Boyfriend), female(Person).
 
-
 /* Non-blood relationship */
-auntNB(AuntNB, Person) :- female(AuntNB), non_blood_brother(Person, X), (parent(AuntNB, Person); parent(AuntNB, X)).
+auntNB(AuntNB, Person) :-
+        non_blood_brother(Person, X),
+        mother(AuntNB, X).
 
-uncleNB(UncleNB, Person) :- male(UncleNB), non_blood_brother(Person, X), (parent(UncleNB, Person); parent(UncleNB, X)).
+uncleNB(UncleNB, Person) :-
+        non_blood_brother(Person, X),
+        father(UncleNB, X).
 
-brotherNB(BrotherNB, Person) :- male(BrotherNB), non_blood_brother(Person, X), (brother(BrotherNB, Person); brother(BrotherNB, X)).
+brotherNB(BrotherNB, Person) :-
+        non_blood_brother(Person, X),
+        brother(BrotherNB, X).
 
-sisterNB(SisterNB, Person) :- female(SisterNB), non_blood_brother(Person, X), (sister(SisterNB, Person); sister(SisterNB, X)).
-
+sisterNB(SisterNB, Person) :-
+        non_blood_brother(Person, X),
+        sister(SisterNB, X).
 
 /* Black Organization */
-research_APTX_4869(Person) :- is_biochemist(Person),  was_black_organization(Person).
+research_APTX_4869(Person) :- is_biochemist(Person), was_black_organization(Person).
 
 took_APTX_4869(Person) :- shrank(Person).
 
@@ -136,4 +156,8 @@ scientist_family(Person) :- is_biochemist(Person), parent(X, Person), is_biochem
 
 has_antidote_APTX_4869(Person) :- research_APTX_4869(Person), is_alive(Person).
 
-british_japanese(Person) :- (father(X, Person), is_british(X), mother(Y, Person), is_japanese(Y)); (father(X, Person), is_japanese(X), mother(Y, Person), is_british(Y)).
+british_japanese(Person) :-
+        (father(X, Person), is_british(X),
+        mother(Y, Person), is_japanese(Y));
+        (father(X, Person), is_japanese(X),
+        mother(Y, Person), is_british(Y)).
