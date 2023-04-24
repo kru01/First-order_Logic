@@ -124,3 +124,20 @@ grandfather(GF, GC) :- male(GF), parent(GF, X), parent(X, GC).
 grandchild(GC, GP) :- parent(GP, X), parent(X, GC).
 grandson(GS, GP) :- male(GS), parent(GP, X), parent(X, GS).
 granddaughter(GD, GP) :- female(GD), parent(GP, X), parent(X, GD).
+
+sibling(Person1, Person2) :- parent(X, Person1), parent(X, Person2), female(X).
+brother(Person, Sibling) :- male(Person), parent(X, Person), parent(X, Sibling), female(X).
+
+sister(Person, Sibling) :- female(Person), parent(X, Person), parent(X, Sibling), female(X).          
+
+aunt(Person, NieceNephew) :- female(Person), parent(Parent, NieceNephew), sister(Person, Parent).
+aunt(Person, NieceNephew) :- female(Person), parent(Parent, NieceNephew), brother(Uncle, Parent), wife(Person, Uncle).
+
+uncle(Person, NieceNephew) :- male(Person), parent(Parent, NieceNephew), brother(Person, Parent).
+uncle(Person, NieceNephew) :- male(Person), parent(Parent, NieceNephew), sister(Aunt, Parent), husband(Person, Aunt).
+
+niece(Person, AuntUncle) :- female(Person), aunt(AuntUncle, Person).
+niece(Person, AuntUncle) :- female(Person), uncle(AuntUncle, Person).
+
+nephew(Person, AuntUncle) :- male(Person), aunt(AuntUncle, Person).
+nephew(Person, AuntUncle) :- male(Person), uncle(AuntUncle, Person).
