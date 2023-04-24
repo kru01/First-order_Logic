@@ -1,0 +1,3 @@
+https://tutorialforbeginner.com/ai-unification-in-first-order-logic
+https://stanford-cs221.github.io/autumn2020-extra/modules/logic/first-order-modus-ponens-6pp.pdf
+https://github.com/btcnhung1299/hcmus-logic?fbclid=IwAR1h3qEXwSJEAm_-nBdVQuvlieHTatrO-sMcN0xe_2U7SL7j-k-3AVMYfTc
