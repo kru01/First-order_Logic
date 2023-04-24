@@ -5,48 +5,48 @@ X = queen_elizabeth_II.
 married(X, Y).
 
 X = kate_middleton, Y = prince_william ;
-X = prince_charles, Y = camilla_parker_bowles ;
-X = sophie_rhys_jones, Y = prince_edward ;
-X = mike_tindall, Y = zara_phillips ;
-X = peter_phillips, Y = autumn_kelly ;
 X = zara_phillips, Y = mike_tindall ;
+X = timothy_laurence, Y = princess_anne ;
 X = princess_anne, Y = timothy_laurence ;
-X = autumn_kelly, Y = peter_phillips ;
-X = queen_elizabeth_II, Y = prince_phillip ;
-X = prince_william, Y = kate_middleton ;
-X = prince_edward, Y = sophie_rhys_jones ;
 X = camilla_parker_bowles, Y = prince_charles ;
+X = peter_phillips, Y = autumn_kelly ;
 X = prince_phillip, Y = queen_elizabeth_II ;
-X = timothy_laurence, Y = princess_anne.
+X = prince_charles, Y = camilla_parker_bowles ;
+X = autumn_kelly, Y = peter_phillips ;
+X = mike_tindall, Y = zara_phillips ;
+X = prince_edward, Y = sophie_rhys_jones ;
+X = queen_elizabeth_II, Y = prince_phillip ;
+X = sophie_rhys_jones, Y = prince_edward ;
+X = prince_william, Y = kate_middleton.
 /========================/
 grandchild(X, Y).
 
-X = isla_phillips, Y = princess_anne ;
-X = prince_george, Y = princess_diana ;
-X = princess_beatrice, Y = prince_phillip ;
-X = zara_phillips, Y = queen_elizabeth_II ;
-X = lady_louise_mountbatten_windsor, Y = prince_phillip ;
 X = princess_eugenie, Y = queen_elizabeth_II ;
-X = princess_eugenie, Y = prince_phillip ;
-X = peter_phillips, Y = prince_phillip ;
-X = princess_charlotte, Y = prince_charles ;
-X = peter_phillips, Y = queen_elizabeth_II ;
-X = prince_george, Y = prince_charles ;
-X = princess_charlotte, Y = princess_diana ;
+X = princess_beatrice, Y = prince_phillip ;
+X = isla_phillips, Y = princess_anne ;
+X = james_viscount_severn, Y = prince_phillip ;
+X = mia_grace_tindall, Y = princess_anne ;
 X = isla_phillips, Y = captain_mark_phillips ;
-X = savannah_phillips, Y = princess_anne ;
-X = savannah_phillips, Y = captain_mark_phillips ;
-X = james_viscount_severn, Y = queen_elizabeth_II ;
-X = prince_harry, Y = prince_phillip ;
+X = peter_phillips, Y = prince_phillip ;
+X = lady_louise_mountbatten_windsor, Y = queen_elizabeth_II ;
 X = zara_phillips, Y = prince_phillip ;
+X = lady_louise_mountbatten_windsor, Y = prince_phillip ;
+X = savannah_phillips, Y = princess_anne ;
+X = prince_george, Y = princess_diana ;
+X = princess_eugenie, Y = prince_phillip ;
+X = princess_charlotte, Y = princess_diana ;
+X = savannah_phillips, Y = captain_mark_phillips ;
+X = prince_george, Y = prince_charles ;
 X = prince_harry, Y = queen_elizabeth_II ;
 X = princess_beatrice, Y = queen_elizabeth_II ;
-X = prince_william, Y = queen_elizabeth_II ;
+X = zara_phillips, Y = queen_elizabeth_II ;
+X = princess_charlotte, Y = prince_charles ;
+X = prince_harry, Y = prince_phillip ;
 X = prince_william, Y = prince_phillip ;
-X = lady_louise_mountbatten_windsor, Y = queen_elizabeth_II ;
 X = mia_grace_tindall, Y = captain_mark_phillips ;
-X = james_viscount_severn, Y = prince_phillip ;
-X = mia_grace_tindall, Y = princess_anne.
+X = prince_william, Y = queen_elizabeth_II ;
+X = james_viscount_severn, Y = queen_elizabeth_II ;
+X = peter_phillips, Y = queen_elizabeth_II.
 /========================/
 mother(X, prince_andrew).
 
@@ -57,5 +57,9 @@ mother(sophie_rhys_jones, lady_louise_mountbatten_windsor).
 true.
 /========================/
 divorced(sarah_ferguson, Y).
+
 Y = prince_andrew.
+/========================/
+aunt(autumn_kelly, X).
+X = mia_grace_tindall.
 /========================/

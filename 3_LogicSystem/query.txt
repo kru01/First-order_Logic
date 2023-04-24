@@ -4,3 +4,4 @@ grandchild(X, Y).
 mother(X, prince_andrew).
 mother(sophie_rhys_jones, lady_louise_mountbatten_windsor).
 divorced(sarah_ferguson, Y).
+aunt(autumn_kelly, X).
